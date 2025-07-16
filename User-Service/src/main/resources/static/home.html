@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinBoard | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Inter', sans-serif;
+          color: #0f172a;
+          background: #f9f9f9;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 2rem;
+          background: white;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #0f172a;
+        }
+
+        .nav {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .nav a {
+          text-decoration: none;
+          color: #333;
+          font-weight: 500;
+        }
+
+        .btn-primary {
+          background: #0070f3;
+          color: #fff;
+          border: none;
+          padding: 0.6rem 1.2rem;
+          border-radius: 4px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .hero {
+          background: linear-gradient(to bottom, #0f172a, #1e3a8a);
+          color: white;
+          padding: 4rem 2rem;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: 2.8rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero p {
+          max-width: 600px;
+          margin: 0 auto 2rem;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .hero .cta-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+
+        .cta-buttons button {
+          padding: 0.75rem 1.5rem;
+          font-weight: 500;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .cta-outline {
+          background: white;
+          color: #0f172a;
+          border: 1px solid #0f172a;
+        }
+
+        .cta-solid {
+          background: #0f172a;
+          color: white;
+          border: none;
+        }
+
+        .feature-section {
+          padding: 4rem 2rem;
+          background: #ffffff;
+          text-align: center;
+        }
+
+        .feature-section h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .boards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+        }
+
+        .board-card {
+          background: #f3f4f6;
+          padding: 1.5rem;
+          border-radius: 8px;
+          text-align: left;
+        }
+
+        .board-card img {
+          width: 100%;
+          border-radius: 6px;
+          margin-bottom: 1rem;
+        }
+
+        .board-card h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="logo">FinBoard</div>
+    <nav class="nav">
+        <a href="#">Who We Are</a>
+        <a href="#">Who We Serve</a>
+        <a href="#">Insights</a>
+        <a href="#">Contact</a>
+    </nav>
+    <a href="/login.html"><button class="btn-primary">Client Login →</button></a>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>FinBoard</h1>
+    <p>
+        A personal and professional platform for financial tracking, wealth planning, and strategic goal management. Inspired by elite banking standards.
+    </p>
+    <div class="cta-buttons">
+        <button class="cta-solid">Let’s Talk</button>
+        <a href="/register.html"><button class="cta-outline">Register Now!</button></a>
+    </div>
+</section>
+
+<!-- Feature Boards Section -->
+<section class="feature-section">
+    <h2>Explore FinBoard Features</h2>
+    <div class="boards">
+        <div class="board-card">
+            <img src="/images/img_1.png" alt="Dashboard Analytics">
+            <h3>Smart Dashboards</h3>
+            <p>Real-time analytics, investment growth, and performance monitoring with intuitive UI.</p>
+        </div>
+        <div class="board-card">
+            <img src="/images/img_2.png" alt="Goal Planning">
+            <h3>Goal Planning</h3>
+            <p>Set and track wealth goals with tailored advice and risk-adjusted forecasting.</p>
+        </div>
+        <div class="board-card">
+            <img src="/images/img_3.png" alt="Security">
+            <h3>Bank-grade Security</h3>
+            <p>Encrypted, private, and secure platform infrastructure to protect your net worth.</p>
+        </div>
+    </div>
+</section>
+</body>
+</html>

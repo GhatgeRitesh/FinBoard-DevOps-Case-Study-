@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register | FinBoard</title>
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+    <div class="logo">📊 FinBoard</div>
+    <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+    </nav>
+</header>
+
+<!-- Registration Form Section -->
+<section class="form-section fade-in">
+    <div class="form-card glass-card">
+        <h1>📝 Register for FinBoard</h1>
+        <form id="registerForm">
+            <input type="text" name="userName" placeholder="👤 Full Name" required />
+            <input type="email" name="userEmail" placeholder="📧 Email Address" required />
+            <input type="tel" name="userContact" placeholder="📱 Contact Number" required />
+            <input type="text" name="userAddress" placeholder="🏠 Address" required />
+            <input type="password" name="userPassword" placeholder="🔐 Password" required />
+            <input type="text" name="profession" placeholder="💼 Profession" required />
+            <textarea name="purpose" placeholder="📝 Why are you joining FinBoard?" required></textarea>
+
+            <button type="submit" class="submit-btn">🚀 Register</button>
+            <p id="responseMsg"></p>
+
+            <div class="action-buttons">
+                <button type="button" onclick="history.back()">🔙 Back</button>
+                <button type="button" onclick="window.location.href='/login'">🔐 Go to Login</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="/js/register.js"></script>
+</body>
+</html>
