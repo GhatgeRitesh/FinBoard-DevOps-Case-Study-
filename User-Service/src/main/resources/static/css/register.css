@@ -167,3 +167,12 @@ form textarea {
 .action-buttons button:hover {
   background: #ccc;
 }
+#loader {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+

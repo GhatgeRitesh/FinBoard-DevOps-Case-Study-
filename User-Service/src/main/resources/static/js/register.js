@@ -3,7 +3,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
   const loader = document.getElementById('loader');
   const responseMsg = document.getElementById('responseMsg');
-  loader.classList.remove('hidden');
+  if (loader) loader.classList.remove('hidden');
   responseMsg.innerText = "";
   responseMsg.style.color = "#333";
 
@@ -23,6 +23,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         responseMsg.innerText = "✅ Registration successful!";
         responseMsg.style.color = "green";
         e.target.reset();
+        setTimeout(() => {
+          window.location.href = "/client-dashboard.html";
+        }, 1000);
       } else {
         throw new Error(result.message || "Something went wrong.");
       }
@@ -30,12 +33,15 @@ document.getElementById('registerForm').addEventListener('submit', async functio
       responseMsg.innerText = "✅ Registered successfully!";
       responseMsg.style.color = "green";
       e.target.reset();
+      setTimeout(() => {
+        window.location.href = "/client-dashboard.html";
+      }, 1000);
     }
 
   } catch (err) {
     responseMsg.innerText = "❌ " + err.message;
     responseMsg.style.color = "red";
   } finally {
-    loader.classList.add('hidden');
+    if (loader) loader.classList.add('hidden');
   }
 });
