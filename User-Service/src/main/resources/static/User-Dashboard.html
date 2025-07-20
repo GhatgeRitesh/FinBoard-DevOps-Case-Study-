@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBoard - User Dashboard</title>
+    <link rel="stylesheet" href="/css/User-Dashboard.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🏦 FinBoard</div>
+            <div class="user-welcome">Welcome back, <span id="userName">Loading...</span></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+        <!-- User Info Card -->
+        <div class="card user-info-card">
+            <div class="card-header">
+                <div class="card-icon">👤</div>
+                <div class="card-title">User Information</div>
+            </div>
+            <div class="user-info" id="userInfo">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading user information...
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Summary -->
+        <div class="card account-summary">
+            <div class="card-header">
+                <div class="card-icon">💰</div>
+                <div class="card-title">Account Summary</div>
+            </div>
+            <div id="accountSummary">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading account data...
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="card transactions">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Recent Transactions</div>
+            </div>
+            <div id="transactions">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading transactions...
+                </div>
+            </div>
+            <a href="#" class="view-all-link" onclick="viewAllTransactions()">View All Transactions →</a>
+        </div>
+
+        <!-- Requests & Status -->
+        <div class="card requests">
+            <div class="card-header">
+                <div class="card-icon">🧾</div>
+                <div class="card-title">Requests & Status</div>
+            </div>
+            <div id="requests">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading requests...
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="card notifications">
+            <div class="card-header">
+                <div class="card-icon">📬</div>
+                <div class="card-title">Latest Notifications</div>
+            </div>
+            <div id="notifications">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading notifications...
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics -->
+        <div class="card analytics">
+            <div class="card-header">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Service Usage Analytics</div>
+            </div>
+            <div id="analytics">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading analytics...
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card quick-actions">
+            <div class="card-header">
+                <div class="card-icon">🛠️</div>
+                <div class="card-title">Quick Actions</div>
+            </div>
+            <div class="actions-grid">
+                <button class="action-btn" onclick="requestService()">
+                    🎯 Request Service
+                </button>
+                <button class="action-btn" onclick="makePayment()">
+                    💳 Make Payment
+                </button>
+                <button class="action-btn" onclick="raiseTicket()">
+                    🎫 Raise Ticket
+                </button>
+                <button class="action-btn" onclick="downloadStatement()">
+                    📄 Download Statement
+                </button>
+                <button class="action-btn" onclick="editProfile()">
+                    ⚙️ Account Settings
+                </button>
+                <button class="action-btn" onclick="changePassword()">
+                    🔒 Change Password
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Chatbot -->
+<div class="chatbot-float" onclick="openChatbot()">
+    💬
+</div>
+
+<script src="/js/User-Dashboard.js"></script>
+</body>
+</html>

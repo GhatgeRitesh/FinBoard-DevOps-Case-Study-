@@ -27,4 +27,6 @@ public class Client {
     private String profession;
 
     private String purpose;
+
+    private String role;
 }

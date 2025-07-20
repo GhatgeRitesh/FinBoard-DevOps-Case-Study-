@@ -24,7 +24,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         responseMsg.style.color = "green";
         e.target.reset();
         setTimeout(() => {
-          window.location.href = "/client-dashboard.html";
+          window.location.href = "/login.html";
         }, 1000);
       } else {
         throw new Error(result.message || "Something went wrong.");
@@ -34,7 +34,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
       responseMsg.style.color = "green";
       e.target.reset();
       setTimeout(() => {
-        window.location.href = "/client-dashboard.html";
+        window.location.href = "/User-Dashboard.html";
       }, 1000);
     }
 

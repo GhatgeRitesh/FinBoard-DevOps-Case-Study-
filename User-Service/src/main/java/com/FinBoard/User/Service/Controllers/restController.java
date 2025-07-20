@@ -7,6 +7,7 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,13 +28,7 @@ public class restController{
     public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO){
         if(userDTO == null) throw new RuntimeException("No Content Recieved" + HttpStatus.NO_CONTENT);
         try{
-            MessageDigest digest= MessageDigest.getInstance("SHA-256");
-            byte[] encodedHash = digest.digest(userDTO.getUserPassword().getBytes());
-
-            StringBuilder hashedPassword= new StringBuilder();
-            for(byte b: encodedHash){
-                hashedPassword.append(String.format("%02x", b));
-            }
+            String hashedPassword = new BCryptPasswordEncoder().encode(userDTO.getUserPassword());
 
             Client cli = new Client();
             cli.setUserPassword(hashedPassword.toString());
@@ -43,6 +38,7 @@ public class restController{
             cli.setUserAddress(userDTO.getUserAddress());
             cli.setProfession(userDTO.getProfession());
             cli.setPurpose(userDTO.getPurpose());
+            cli.setRole("ROLE_USER");
             clientService.registerClient(cli);
             return new ResponseEntity<>(Map.of("message","User Registered Successfully"),HttpStatus.OK);
         }catch (Exception e){
