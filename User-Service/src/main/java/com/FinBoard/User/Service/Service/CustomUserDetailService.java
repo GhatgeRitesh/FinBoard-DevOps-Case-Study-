@@ -23,6 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    log.info("Finding User in CustomeuserDetails Service");
     Client client = clientService.findByEmail(email);
     if (client == null) {
       throw new UsernameNotFoundException("User not found with email: " + email);
