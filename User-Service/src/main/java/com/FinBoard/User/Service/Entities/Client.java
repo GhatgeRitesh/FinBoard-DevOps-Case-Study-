@@ -14,11 +14,11 @@ public class Client {
     private Long id;
 
     private String userName;
-
+    
     @Column(unique = true, nullable = false)
     private String userEmail;
 
-    private String userContact;
+    private Long userContact;
 
     private String userAddress;
 

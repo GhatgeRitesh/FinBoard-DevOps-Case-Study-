@@ -1,0 +1,82 @@
+package com.FinBoard.User.Service.Controllers;
+
+import com.FinBoard.User.Service.DTO.UserDTO;
+import com.FinBoard.User.Service.Entities.Client;
+import com.FinBoard.User.Service.Service.AuthenticationService;
+import com.FinBoard.User.Service.Service.ClientService;
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.MessageDigest;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@Log
+@RequestMapping("/userservice")
+public class PublicController {
+
+    @Autowired
+    private ClientService clientService;
+
+    @Autowired
+    private AuthenticationService authenticationService;
+
+//    @PostMapping("/registration")
+//    public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO){
+//        if(userDTO == null) throw new RuntimeException("No Content Recieved" + HttpStatus.NO_CONTENT);
+//        try{
+//            String hashedPassword = new BCryptPasswordEncoder().encode(userDTO.getUserPassword());
+//            Client cli = new Client();
+//            cli.setUserPassword(hashedPassword.toString());
+//            cli.setUserName(userDTO.getUserName());
+//            cli.setUserEmail(userDTO.getUserEmail());
+//            cli.setUserContact(userDTO.getUserContact());
+//            cli.setUserAddress(userDTO.getUserAddress());
+//            cli.setProfession(userDTO.getProfession());
+//            cli.setPurpose(userDTO.getPurpose());
+//            cli.setRole("ROLE_USER");
+//            clientService.registerClient(cli);
+//            return new ResponseEntity<>(Map.of("message","User Registered Successfully"),HttpStatus.OK);
+//        }catch (Exception e){
+//            log.info("Exception in controller "+ e.getMessage());
+//            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+//        }
+//    }
+
+    @PostMapping("/registration")
+    public ResponseEntity<?> register(@Validated @RequestBody UserDTO userDTO){
+        try{
+            String hashedPassword = new BCryptPasswordEncoder().encode(userDTO.getUserPassword());
+            Client cli = new Client();
+            cli.setUserPassword(hashedPassword.toString());
+            cli.setUserName(userDTO.getUserName());
+            cli.setUserEmail(userDTO.getUserEmail());
+            cli.setUserContact(userDTO.getUserContact());
+            cli.setUserAddress(userDTO.getUserAddress());
+            cli.setProfession(userDTO.getProfession());
+            cli.setPurpose(userDTO.getPurpose());
+            cli.setRole("ROLE_USER");
+            clientService.registerClient(cli);
+            return new ResponseEntity<>(Map.of("message","User Registered Successfully"),HttpStatus.OK);
+        }catch (Exception e){
+            log.info("Exception in controller "+ e.getMessage());
+            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> userLogin( @RequestBody UserDTO userDTO){
+//             System.out.println("User DTO is received: "+ userDTO.getUserEmail()+"  : "+ userDTO.getUserPassword());
+            String result=authenticationService.validate(userDTO);
+        Map<String, String> response = new HashMap<>();
+        response.put("token", result);
+            return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+}
